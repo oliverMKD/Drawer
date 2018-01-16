@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Drawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_photos">Photos</string>
+    <string name="nav_movies">Movies</string>
+    <string name="nav_notification">Notifications</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Photos</item>
+        <item>Movies</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+    </string-array>
+
+    <string name="activity_title_about_us"></string>
+    <string name="other">Other</string>
+    <string name="logout">LogOut</string>
+    <string name="mark_all_as_read">Mark All as read</string>
+    <string name="clear_all">CLEAR ALL</string>
+    <string name="about_us">Unofficial LFC Supporters Clubs started to form as far back as 1966. In 1993 LFC recognised that there was a need to formalise Supporters Clubs and the Club created the International Supporters Clubs (ISC) network. 1998, this changed to become the Association of International Branches (AIB). Now the Official LFC Supporters Club network (OLSC) also known as the Branch Network has been growing ever since and there are over 200 officially recognised branches in over 50 different countries around the world. Local branches of Official LFC Supporters Clubs (OLSC) provide a valuable service to Liverpool Football Club supporters living in the area. They also provide an excellent way of meeting fellow supporters and like-minded people all of whom are devoted to following Liverpool Football Club, wherever they live in the World. Official LFC Supporter Clubs are closely affiliated to the Club and enjoy many benefits in return for their close allegiance. Official LFC Supporters Clubs are granted official status by the Club in order to: - Represent Liverpool Football Club in local regions around the world - Bring local fans together through their love of LFC - Protect and enhance the good name of LFC - Organise high quality services and events for branch members - Promote, maintain and value the history of Liverpool Football Club - Communicate the views of branch members to Liverpool Football Club - To help support Liverpool FC Foundation and local charitable causes</string>
+    <string name="macReds">Macedonian Reds</string>
+    <string name="mail">info@macedonianreds.com</string>
+</resources>
