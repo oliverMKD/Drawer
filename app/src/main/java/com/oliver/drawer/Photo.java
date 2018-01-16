@@ -8,8 +8,13 @@ import java.io.Serializable;
 
 public class Photo implements Serializable {
 
-    String id;
-    String image_url;
-    String name;
+   public int id;
+   public String image_url;
+   public String name;
 
+    public Photo(int id, String image_url, String name) {
+        this.id = id;
+        this.image_url = image_url;
+        this.name = name;
+    }
 }
