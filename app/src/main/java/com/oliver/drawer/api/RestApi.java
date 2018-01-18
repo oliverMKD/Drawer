@@ -1,5 +1,7 @@
 package com.oliver.drawer.api;
 
+import android.content.Context;
+
 import com.oliver.drawer.BuildConfig;
 import com.oliver.drawer.Models.PhotoModel;
 
@@ -17,6 +19,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestApi {
 
     public static final int request_max_time_in_secconds = 20;
+    private Context activity;
+
+    public RestApi(Context context) {
+        this.activity = activity;
+    }
 
     public Retrofit getRetrofitInstance(){
         OkHttpClient client = new OkHttpClient.Builder()
