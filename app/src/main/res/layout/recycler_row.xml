@@ -13,9 +13,10 @@
     cardview:cardElevation="15dp">
 
     <ImageView
+
         android:id="@+id/slika"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
 
     <View
         android:layout_width="match_parent"

@@ -45,7 +45,7 @@ public class Fragment_Photos extends Fragment {
         mUnbinder = ButterKnife.bind(this, view);
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),1));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
 
         Call<PhotoModel> call = api.getPhotos("fresh_today");

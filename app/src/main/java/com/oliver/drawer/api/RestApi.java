@@ -3,6 +3,7 @@ package com.oliver.drawer.api;
 import android.content.Context;
 
 import com.oliver.drawer.BuildConfig;
+import com.oliver.drawer.Interceptor.LoggingInterceptor;
 import com.oliver.drawer.Models.PhotoModel;
 
 import java.util.concurrent.TimeUnit;
@@ -27,6 +28,7 @@ public class RestApi {
 
     public Retrofit getRetrofitInstance(){
         OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new LoggingInterceptor())
                 .readTimeout(request_max_time_in_secconds, TimeUnit.SECONDS)
                 .connectTimeout(request_max_time_in_secconds,TimeUnit.SECONDS)
                 .build();
