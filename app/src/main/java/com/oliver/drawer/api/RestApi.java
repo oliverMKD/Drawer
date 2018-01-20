@@ -1,10 +1,13 @@
 package com.oliver.drawer.api;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.oliver.drawer.BuildConfig;
 import com.oliver.drawer.Interceptor.LoggingInterceptor;
 import com.oliver.drawer.Models.PhotoModel;
+import com.oliver.drawer.other.CheckConnection;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +45,30 @@ public class RestApi {
     public ApiService request(){
         return getRetrofitInstance().create(ApiService.class);
     }
+
+    public void checkInternet(Runnable callback){
+        if (CheckConnection.CheckInternetConnectivity(activity,true,callback))
+            callback.run();
+    }
+    public void checkInternet(Runnable callback, boolean showConnectionDialog){
+        if (CheckConnection.CheckInternetConnectivity(activity,showConnectionDialog,callback))
+            callback.run();
+        else {
+            Toast.makeText(activity, "Connection failed, please check connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void checkInternet(Runnable callback, boolean showConnectionDialog, String message){
+        if (CheckConnection.CheckInternetConnectivity(activity,showConnectionDialog,callback))
+            callback.run();
+        else {
+            if (showConnectionDialog)
+            Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
+            else
+                Log.d("Connection failed","" + message);
+        }
+    }
+
+
 
     public Call<PhotoModel> getPhotos(String feature){
         return request().getPhotos(feature);

@@ -47,29 +47,34 @@ public class Fragment_Photos extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
-
-        Call<PhotoModel> call = api.getPhotos("fresh_today");
-        call.enqueue(new Callback<PhotoModel>() {
-
+        api.checkInternet(new Runnable() {
             @Override
-            public void onResponse(Call<PhotoModel> call, Response<PhotoModel> response) {
-                if (response.code() == 200) {
-                    photosModel = response.body();
-                    mAdapter = new RV_Adapter(photosModel, getActivity());
-                    mRecyclerView.setAdapter(mAdapter);
+            public void run() {
+                Call<PhotoModel> call = api.getPhotos("fresh_today");
+                call.enqueue(new Callback<PhotoModel>() {
 
-                    progressBar.setVisibility(View.INVISIBLE);
-                } else if (response.code() == 401) {
-                    Toast.makeText(getContext(), "OUPS!", Toast.LENGTH_LONG).show();
-                }
-            }
+                    @Override
+                    public void onResponse(Call<PhotoModel> call, Response<PhotoModel> response) {
+                        if (response.code() == 200) {
+                            photosModel = response.body();
+                            mAdapter = new RV_Adapter(photosModel, getActivity());
+                            mRecyclerView.setAdapter(mAdapter);
 
-            @Override
-            public void onFailure(Call<PhotoModel> call, Throwable t) {
-                Toast.makeText(getContext(), "Something went wrong!", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.INVISIBLE);
+                        } else if (response.code() == 401) {
+                            Toast.makeText(getContext(), "OUPS!", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<PhotoModel> call, Throwable t) {
+                        Toast.makeText(getContext(), "Something went wrong!", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
             }
         });
-
         return view;
     }
 
